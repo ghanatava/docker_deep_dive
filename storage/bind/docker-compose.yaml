@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    name: testdb
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=mysecretpasswd
+    volumes:
+      - type: bind
+        source: ./bind
+        target: /var/lib/postgresql/data
+volumes:
+  myapp:
+    
