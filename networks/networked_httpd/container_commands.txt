@@ -1,0 +1,9 @@
+inside s2 and s3
+nslookup gateway //to get gateway's ip which is 10.0.0.4
+ip route add 10.0.1.0/24 via 10.0.0.4
+
+inside s1
+nslookup gateway
+ip route add 10.0.0.0/24 via 10.0.0.3
+
+NOTE: In both subnets the address 10.0.0.1 and 10.0.1.1 are reserved for default gateway

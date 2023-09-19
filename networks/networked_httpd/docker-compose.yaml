@@ -1,0 +1,43 @@
+version: '3'
+services:
+
+  frontend:
+    image: nhttpd
+    cap_add:
+      - NET_ADMIN
+    container_name: s1
+    networks: 
+      - frontend
+    command: 
+  
+
+  backend1:
+    image: nhttpd
+    cap_add:
+      - NET_ADMIN
+    container_name: s2
+    networks:
+      - backend
+
+  backend2:
+    image: nhttpd
+    cap_add:
+      - NET_ADMIN
+    container_name: s3
+    networks:
+      - backend
+
+  gateway:
+    image: nhttpd
+    container_name: gateway
+    networks:
+      - backend
+      - frontend
+
+    
+networks:
+  backend:
+    external: true
+
+  frontend:
+    external: true  
